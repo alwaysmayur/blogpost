@@ -1,0 +1,260 @@
+.article {
+    width: 100%;
+}
+
+/* Hero Section */
+/* Header Section */
+.blog_header {
+    text-align: center;
+    padding: 4rem 1.5rem 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.breadcrumb {
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    font-family: var(--font-inter, sans-serif);
+}
+
+.blog_title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #111;
+    margin: 0;
+    font-family: var(--font-inter, sans-serif);
+}
+
+@media (min-width: 768px) {
+    .blog_title {
+        font-size: 2.5rem;
+    }
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: auto;
+    /* Let image define height or set max-height */
+    aspect-ratio: 21/9;
+    max-height: 500px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    /* Spacing between image and content */
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+/* content_wrapper is the Grid Container */
+.content_wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+/* Mobile Order: Content -> Sidebar -> Comments */
+.main_content {
+    order: 1;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Sidebar selector needs to be targeted correctly. Assuming it's the second child div or explicitly classed in Sidebar.js? 
+   Sidebar.js usually returns an <aside> or <div>. We might need to target :nth-child(2) if no class, 
+   but it's safer to rely on order. 
+   Currently Sidebar component root element probably doesn't have a class passed from here.
+   However, we know the structure:
+   1. main_content
+   2. <Sidebar /> container (we need to target this)
+   3. comments_section
+*/
+
+/* Target the Sidebar wrapper (child 2) */
+.content_wrapper>*:nth-child(2) {
+    order: 2;
+}
+
+.comments_section {
+    order: 3;
+}
+
+@media (min-width: 1024px) {
+    .content_wrapper {
+        grid-template-columns: 2.5fr 1fr;
+        /* Optimized ratio for readability */
+        gap: 4rem;
+        /* Reset order not strictly needed if we define grid areas/placement */
+    }
+
+    .main_content {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    /* Sidebar */
+    .content_wrapper>*:nth-child(2) {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        /* Span down to cover both content and comments height */
+        height: fit-content;
+    }
+
+    .comments_section {
+        grid-column: 1;
+        grid-row: 2;
+        margin-top: 2rem;
+    }
+}
+
+/* Author Info */
+.author_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.author_profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author_avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    /* Create a gradient-like look with image or simple grey as placeholder if no image */
+    background: #666;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    overflow: hidden;
+}
+
+/* If real image inside */
+.author_avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.author_name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: #4a5568;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: var(--font-inter, sans-serif);
+}
+
+.post_date {
+    font-size: 0.9rem;
+    color: #4a5568;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-family: var(--font-inter, sans-serif);
+}
+
+/* Typography / Content */
+.post_content {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #2c2c2c;
+    margin-bottom: 3rem;
+}
+
+.post_content p {
+    margin-bottom: 1.5rem;
+    font-family: 'Georgia', serif;
+    /* Classic readable font for body */
+}
+
+.post_content h2,
+.post_content h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: #111;
+    font-family: var(--font-inter, sans-serif);
+    font-weight: 700;
+}
+
+.edit_button {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    transition: all 0.2s;
+}
+
+.edit_button:hover {
+    background: #f5f5f5;
+    border-color: #ccc;
+}
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .blog_header {
+        padding: 3rem 1.5rem 1.5rem;
+    }
+
+    .blog_title {
+        font-size: 2.2rem;
+    }
+
+    .author_info {
+        flex-direction: column;
+        gap: 1.25rem;
+        text-align: center;
+        padding-bottom: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .author_profile {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+        width: 100%;
+    }
+
+    .author_name {
+        color: #1a202c;
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .post_date {
+        color: #718096;
+        font-size: 1rem;
+        width: 100%;
+    }
+}

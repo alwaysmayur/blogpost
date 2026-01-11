@@ -1,0 +1,111 @@
+.editor {
+    background: var(--color-background-light);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+    border: 2px solid var(--color-border);
+}
+
+.editor_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.editor_title {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-primary);
+}
+
+.editor_actions {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.btn_cancel,
+.btn_save {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.btn_cancel {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+}
+
+.btn_cancel:hover {
+    background: var(--color-background-light);
+}
+
+.btn_save {
+    background: var(--color-accent);
+    color: white;
+}
+
+.btn_save:hover {
+    background: #38a169;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);
+}
+
+.editor_textarea {
+    width: 100%;
+    min-height: 300px;
+    padding: var(--spacing-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    font-family: 'Courier New', monospace;
+    font-size: var(--font-size-sm);
+    resize: vertical;
+    margin-bottom: var(--spacing-lg);
+}
+
+.editor_textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.1);
+}
+
+.editor_preview {
+    padding: var(--spacing-lg);
+    background: var(--color-background);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+}
+
+.preview_title {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.preview_content {
+    color: var(--color-text-primary);
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .editor_header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+    }
+
+    .editor_actions {
+        width: 100%;
+    }
+
+    .btn_cancel,
+    .btn_save {
+        flex: 1;
+    }
+}

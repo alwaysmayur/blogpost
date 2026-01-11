@@ -1,0 +1,130 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.btn_create {
+    background: #000;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn_create:hover {
+    background: #333;
+}
+
+.loading,
+.empty {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #666;
+}
+
+.table_wrapper {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid #eee;
+}
+
+.table thead {
+    background: #f8f8f8;
+}
+
+.table th,
+.table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.table th {
+    font-weight: 600;
+    color: #333;
+}
+
+.blog_title {
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.blog_title:hover {
+    text-decoration: underline;
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn_edit,
+.btn_delete {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.btn_edit {
+    background: #f0f0f0;
+    color: #000;
+    border: 1px solid #ddd;
+}
+
+.btn_edit:hover {
+    background: #e0e0e0;
+}
+
+.btn_delete {
+    background: #fff;
+    color: #dc2626;
+    border: 1px solid #dc2626;
+}
+
+.btn_delete:hover {
+    background: #dc2626;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .table {
+        font-size: 0.875rem;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.75rem 0.5rem;
+    }
+}
